@@ -1,0 +1,35 @@
+extends ../../layouts/default.pug 
+
+block main 
+
+  if(product.title)
+    div(class="mb-4")  #{product.title} 
+  
+  if(product.price)
+    div(class="mb-4") gia: <b>#{product.price}$ <b>
+  if(product.stock)
+    div(class="mb-4") so luong: <b> #{product.stock} <b>
+  if(product.thumbnail) 
+    div(class="mb-4")
+      img(
+        src=product.thumbnail
+        style="width: 100px"
+      )
+  if(product.status)
+
+    div(class="mb-4")
+      span trang thai 
+      if(product.status === "active")
+        span(class="badge badge-success") hoat dong 
+
+      else 
+        span(class="badge badge-danger") dung hoat dong
+  if(product.rank)
+    div(class="mb-4") vi tri: <b> #{product.rank} <b>
+
+  a(
+    href=`${prefixadmin}/products/edit/${product.id}`
+    class="btn btn-warning"
+  )  chinh sua
+
+  script(src="/admin/js/product.js")

@@ -1,0 +1,23 @@
+mixin pagination(pagination)
+  nav 
+    ul(class="pagination")
+      if(pagination.currenpage > 1)
+        li(class="page-item")
+          button(
+            class="page-link"
+            button-pagination=pagination.currenpage-1
+          ) trang truoc
+      
+
+      - for (var i = 1; i<= 5; i++)
+        li(class=`page-item ${paginationcurrenpage == i ? "active" : ""}`)
+          button(
+            class="page-link"
+            button-pagination=i
+            ) #{i}
+      if(pagination.currenpage < 5)      
+        li(class="page-item")
+          button(
+            class="page-link"
+            button-pagination=pagination.currenpage+1
+          ) ke tiep
